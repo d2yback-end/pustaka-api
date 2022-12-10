@@ -13,7 +13,7 @@ import (
 func RootHandler(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
 		"name": "Adi Munawar",
-		"age":  31,
+		"age":  21,
 		"city": "Kuningan",
 	})
 }
