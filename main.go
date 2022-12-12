@@ -24,6 +24,21 @@ func main() {
 
 	db.AutoMigrate(&book.Book{})
 
+	book := book.Book{}
+	book.Title = "D2Y CODING"
+	book.Price = 99999
+	book.Rating = 5
+	book.Description = "Belajar programming dengan bahasa golang"
+	book.Discount = 10
+
+	errCreateTable := db.Create(&book).Error
+
+	if errCreateTable != nil {
+		fmt.Println("=================================================================")
+		fmt.Println("Failed to save data in table books!")
+		fmt.Println("=================================================================")
+	}
+
 	router := gin.Default()
 
 	v1 := router.Group("/v1")
